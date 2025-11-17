@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OmaMesh — Meshtastic & Meshcore in Metro Omaha</title>
-  <meta name="description" content="Metro Omaha mesh enthusiast community experimenting with both Meshtastic and Meshcore." />
+  <title>OmaMesh — Meshtastic & MeshCore in Metro Omaha</title>
+  <meta name="description" content="Metro Omaha mesh enthusiast community experimenting with both Meshtastic and MeshCore." />
   <meta name="theme-color" content="#0ea5e9" />
-  <meta property="og:title" content="OmaMesh — Meshtastic & Meshcore in Metro Omaha" />
-  <meta property="og:description" content="Metro Omaha mesh enthusiast community experimenting with both Meshtastic and Meshcore." />
+  <meta property="og:title" content="OmaMesh — Meshtastic & MeshCore in Metro Omaha" />
+  <meta property="og:description" content="Metro Omaha mesh enthusiast community experimenting with both Meshtastic and MeshCore." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://omamesh.net/" />
   <meta name="robots" content="noindex,follow" />
@@ -34,7 +34,7 @@
       }
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html,body{min-height:100%}
     body{
       margin:0;
       font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
@@ -43,14 +43,13 @@
         radial-gradient(1200px 600px at 80% -10%, rgba(14,165,233,0.20), transparent 50%),
         radial-gradient(1200px 600px at 0% 110%, rgba(14,165,233,0.15), transparent 50%),
         var(--bg);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
+      display:block;          /* allow normal flow */
+      overflow-x:hidden;      /* avoid sideways scroll, keep vertical scroll */
     }
     .wrap{
       width:min(980px, 94vw);
-      margin:auto;
-      padding:28px;
+      margin:32px auto;
+      padding:16px;
     }
     .card{
       background:var(--card);
@@ -64,37 +63,58 @@
     }
     .grid{position:absolute; inset:0; background-size:24px 24px; background-image:var(--grid); opacity:.35; pointer-events:none}
     header{display:flex; align-items:center; gap:14px; padding:24px 24px 0}
+    @media (max-width: 540px){
+      header{flex-direction:row; align-items:flex-start}
+    }
     .logo{
       width:44px; height:44px; border-radius:12px; display:grid; place-items:center;
       background: linear-gradient(135deg, var(--brand), #60a5fa);
       box-shadow: 0 6px 16px var(--ring);
+      flex-shrink:0;
     }
     .logo svg{width:26px; height:26px; fill:white}
     .brand h1{font-size:clamp(22px,3.4vw,32px); line-height:1.1; margin:0}
     .brand p{margin:2px 0 0; color:var(--muted)}
 
-    .hero{padding:36px 24px 8px; text-align:center}
-    .hero h2{font-size:clamp(30px,6vw,56px); line-height:1.05; margin:0 0 10px}
+    .hero{padding:28px 24px 8px; text-align:left}
+    .hero h2{font-size:clamp(26px,5.2vw,44px); line-height:1.1; margin:0 0 10px}
     .hero p{margin:0 auto; max-width:60ch; color:var(--muted)}
 
     .cta{
-      display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; padding:24px; margin:10px 0 8px;
+      display:flex; flex-wrap:wrap; gap:12px; justify-content:flex-start; align-items:center; padding:20px 24px 8px; margin:6px 0 8px;
     }
-    .btn{appearance:none; border:none; cursor:pointer; font-weight:650; letter-spacing:.2px; padding:12px 16px; border-radius:999px}
+    .btn{appearance:none; border:none; cursor:pointer; font-weight:650; letter-spacing:.2px; padding:11px 16px; border-radius:999px; font-size:0.95rem; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap}
     .btn.primary{background:var(--brand); color:white; box-shadow:0 6px 18px var(--ring)}
     .btn.ghost{background:transparent; color:var(--fg); border:1px solid rgba(255,255,255,.18)}
-    .btn:focus-visible{outline:3px solid var(--ring)}
+    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px}
 
-    .info{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; padding:0 24px 24px}
-    .tile{padding:16px 18px; border:1px dashed rgba(255,255,255,0.18); border-radius:16px}
-    .tile h3{margin:0 0 6px; font-size:15px; text-transform:uppercase; letter-spacing:.14em; opacity:.85}
-    .tile p{margin:0; color:var(--muted)}
+    .info{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      padding:0 24px 24px;
+    }
+    .tile{
+      padding:16px 18px;
+      border:1px dashed rgba(255,255,255,0.18);
+      border-radius:16px;
+      background:rgba(15,23,42,0.30);
+    }
+    .tile h3{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.14em; opacity:.85}
+    .tile p{margin:0; color:var(--muted); font-size:0.95rem}
+    .tile a{color:var(--fg); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
 
-    footer{padding:18px 24px 26px; color:var(--muted); text-align:center}
+    footer{padding:18px 24px 22px; color:var(--muted); text-align:center; font-size:0.85rem}
     footer a{color:inherit}
 
-    /* fun pulse */
     .pulse{position:absolute; inset:auto 0 -50px 0; height:140px; background:radial-gradient(50% 100% at 50% 0, var(--ring), transparent 70%); filter:blur(14px); opacity:.6}
+
+    @media (max-width: 480px){
+      .wrap{margin:16px auto}
+      .card{border-radius:18px}
+      .cta{flex-direction:column; align-items:stretch}
+      .btn{width:100%}
+    }
   </style>
 </head>
 <body>
@@ -110,16 +130,16 @@
         </div>
         <div class="brand">
           <h1>OmaMesh</h1>
-          <p>Metro Omaha mesh community on Meshtastic &amp; Meshcore</p>
+          <p>Metro Omaha mesh community on Meshtastic &amp; MeshCore</p>
         </div>
       </header>
 
       <section class="hero" aria-labelledby="title">
-        <h2 id="title">Meshtastic &amp; Meshcore, local and experimental</h2>
+        <h2 id="title">One local community, two mesh platforms</h2>
         <p>
           OmaMesh is a grassroots group of Omaha–Council Bluffs radio nerds exploring long-range,
           low-power mesh networking. Today we have Meshtastic nodes on rooftops, bikes, and trails —
-          and we&rsquo;re also starting to experiment with Meshcore in the same region.
+          and we&rsquo;re also beginning to experiment with MeshCore in the same region.
         </p>
       </section>
 
@@ -135,25 +155,36 @@
           <p>
             We&rsquo;re a local, volunteer-run community experimenting with off-grid messaging and
             telemetry. Many of us run Meshtastic nodes today, and some of us are starting to bring
-            up Meshcore-based test nodes as well. Same people, different firmwares and radios.
+            up MeshCore-based test nodes as well. Same people, different firmwares and radios.
           </p>
         </div>
+
         <div class="tile">
-          <h3>Two platforms, one community</h3>
+          <h3>Two platforms, one social layer</h3>
           <p>
-            The local layer is social, not brand-specific. Whether you&rsquo;re curious about
-            Meshtastic, Meshcore, or just learning what a mesh network is, you&rsquo;ll find
+            The community layer is human, not brand-specific. Whether you&rsquo;re curious about
+            Meshtastic, MeshCore, or just learning what a mesh network is, you&rsquo;ll find
             Omaha-area folks comparing notes, sharing coverage results, and testing ideas together.
           </p>
         </div>
+
+        <div class="tile">
+          <h3>Learn more about the projects</h3>
+          <p>
+            • Meshtastic project site: <a href="https://meshtastic.org" target="_blank" rel="noopener">meshtastic.org</a><br />
+            • MeshCore project site: <a href="https://meshcore.co.uk" target="_blank" rel="noopener">meshcore.co.uk</a>
+          </p>
+        </div>
+
         <div class="tile">
           <h3>What this site will offer</h3>
           <p>
             Coming soon: getting-started guides, how to join our Meshtastic channels, how to try
-            local Meshcore test networks, coverage and telemetry dashboards, and notes from the
+            local MeshCore test networks, coverage and telemetry dashboards, and notes from the
             experiments we&rsquo;re running around the metro.
           </p>
         </div>
+
         <div class="tile">
           <h3>Want to help?</h3>
           <p>
@@ -170,8 +201,8 @@
       <div class="pulse" aria-hidden="true"></div>
       <footer>
         <small>
-          &copy; <span id="y"></span> omamesh.net • Community-run site in the Omaha metro. Not
-          affiliated with the Meshtastic or Meshcore projects.
+          &copy; <span id="y"></span> omamesh.net • Community-run site in the Omaha metro.
+          Not affiliated with the Meshtastic or MeshCore projects.
         </small>
       </footer>
     </div>
