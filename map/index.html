@@ -18,127 +18,77 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      width: 100%;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                    sans-serif;
       background: var(--bg);
       color: var(--fg);
-      line-height: 1.6;
     }
 
-    header {
-      border-bottom: 1px solid var(--border);
-      background: #fafafa;
+    /* Fullscreen map iframe */
+    .map-frame {
+      position: fixed;
+      inset: 0;           /* top:0; right:0; bottom:0; left:0 */
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem;
-    }
-
-    h1 {
-      margin: 0 0 0.25rem;
-      font-size: 1.8rem;
-    }
-
-    .tagline {
-      margin: 0 0 0.75rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    nav a {
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: var(--accent);
-    }
-    nav a:hover,
-    nav a:focus {
-      text-decoration: underline;
-    }
-
-    .map-container {
+    /* Overlay header on top of the map */
+    .header-overlay {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid var(--border);
       border-radius: 6px;
-      overflow: hidden;
-      background: #f5f5f5;
+      padding: 0.5rem 0.75rem;
+      max-width: 320px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .map-container iframe {
-      width: 100%;
-      border: 0;
-      display: block;
-      /* No height constraints at all */
+    .header-overlay h1 {
+      margin: 0 0 0.15rem;
+      font-size: 1.1rem;
     }
 
-    .meta {
-      font-size: 0.85rem;
+    .header-overlay p {
+      margin: 0 0 0.35rem;
       color: var(--muted);
-      margin-top: 0.75rem;
+      font-size: 0.8rem;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      background: #fafafa;
-    }
-
-    footer .wrap {
-      padding-top: 1rem;
-      padding-bottom: 1.25rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    footer a {
+    .header-overlay a {
       color: var(--accent);
       text-decoration: none;
+      font-size: 0.85rem;
     }
-    footer a:hover,
-    footer a:focus {
+
+    .header-overlay a:hover,
+    .header-overlay a:focus {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <h1>OmaMesh Nodes Map</h1>
-      <p class="tagline">
-        Live MeshCore node map for the Omaha metro mesh community.
-      </p>
-      <nav>
-        <a href="https://omamesh.net">← Back to omamesh.net home</a>
-      </nav>
-    </div>
-  </header>
+  <div class="header-overlay">
+    <h1>OmaMesh Nodes Map</h1>
+    <p>Live MeshCore node map for the Omaha metro mesh community.</p>
+    <a href="https://omamesh.net">← Back to omamesh.net home</a>
+  </div>
 
-  <main>
-    <div class="wrap">
-      <section class="map-container" aria-label="OmaMesh node map">
-        <iframe
-          src="https://omamesh-mc-nodes-map.s3.us-east-2.amazonaws.com/mc_nodes_map.html"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
-      </section>
-
-      <p class="meta">
-        This map is generated from live mesh data. Refresh the page periodically to see new nodes and updates.
-      </p>
-    </div>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © omamesh.net • Community-run site in the Omaha metro.
-      Not affiliated with the Meshtastic or MeshCore projects.
-      <br>
-      <a href="https://omamesh.net">Return to home page</a>
-    </div>
-  </footer>
+  <iframe
+    class="map-frame"
+    src="https://omamesh-mc-nodes-map.s3.us-east-2.amazonaws.com/mc_nodes_map.html"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+  </iframe>
 </body>
 </html>
