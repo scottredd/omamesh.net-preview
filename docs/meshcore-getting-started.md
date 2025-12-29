@@ -18,7 +18,6 @@ Key features:
 - Automatic multi-hop message routing
 - Message acknowledgements (you know when it got through)
 - Efficient and battery-friendly
-- Coexists nicely alongside Meshtastic
 
 Many OmaMesh users run both Meshtastic and MeshCore on different radios or at different times.
 
@@ -28,10 +27,8 @@ Many OmaMesh users run both Meshtastic and MeshCore on different radios or at di
 
 You will need a LoRa radio that supports MeshCore firmware. Popular choices include:
 
-- ESP32-based LoRa boards
-- USB or serial-connected LoRa radios
-- Dedicated MeshCore companion devices
-
+- List of devices here
+- 
 If you are unsure whether your hardware is compatible, ask in the OmaMesh Discord.
 
 ### 2. MeshCore software
@@ -83,7 +80,7 @@ SF9 strikes a good balance for Omaha:
 - Improved performance through trees, buildings, and terrain
 - More consistent acknowledgements across multiple hops
 
-You do not need to understand the math - just know it works better here.
+Why SF9 explainer here.
 
 ## Your first steps on the mesh
 
@@ -111,8 +108,7 @@ MeshCore is shared spectrum. A little courtesy goes a long way.
 
 The Omaha mesh community is friendly and active.
 
-- OmaMesh Discord: https://discord.gg/59sbGSCEms
-- General MeshCore Community: https://discord.gg/meshtastic
+- OmaMesh MshCore Discord: https://discord.gg/59sbGSCEms
 
 If something is not working:
 
@@ -125,7 +121,7 @@ If something is not working:
 Once you are comfortable:
 
 - Experiment with antennas and placement
-- Try running a stationary node
+- Try running a repeater or room server node
 - Explore repeaters and multi-hop routing
 - Watch the OmaMesh node map
 - Participate in events and experiments
