@@ -71,9 +71,6 @@ After changing settings:
 - Save
 - Reboot your device
 
-For details on why SF9 is required and how Coding Rate affects reliability, see
-[Spreading Factor (SF) and Coding Rate (CR)]({{ "/docs/sf-cr/" | relative_url }}).
-
 ### Why SF9?
 
 SF9 strikes a good balance for Omaha:
@@ -83,7 +80,8 @@ SF9 strikes a good balance for Omaha:
 - Improved performance through trees, buildings, and terrain
 - More consistent acknowledgements across multiple hops
 
-Why SF9 explainer here.
+For details on why SF9 is required and how Coding Rate affects reliability, see
+[Spreading Factor (SF) and Coding Rate (CR)]({{ "/docs/sf-cr/" | relative_url }}).
 
 ## Your first steps on the mesh
 
