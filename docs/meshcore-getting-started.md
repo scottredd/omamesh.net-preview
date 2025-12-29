@@ -27,9 +27,160 @@ Many OmaMesh users run both Meshtastic and MeshCore on different radios or at di
 
 You will need a LoRa radio that supports MeshCore firmware. Popular choices include:
 
-- List of devices here
-- 
-If you are unsure whether your hardware is compatible, ask in the OmaMesh Discord.
+MeshCore runs on a range of LoRa-capable hardware, but some devices are much better suited to real-world mesh use than others. Below is a curated list of MeshCore-compatible devices that OmaMesh members actively recommend, with a short description of what makes each one useful.
+
+This list emphasizes real deployments, RF performance, and ease of use, not just specs on paper.
+
+---
+
+#### Heltec WiFi LoRa 32 (V2 / V3)
+
+A long-standing favorite and an easy entry point.
+
+- Built-in OLED display
+- USB powered, simple flashing
+- Widely available and well supported
+- Moderate RF output
+
+Best for: beginners, desk nodes, simple fixed nodes
+
+---
+
+#### Heltec WiFi LoRa 32 V4
+
+An updated version with significantly higher RF output power.
+
+- Higher transmit power than earlier Heltec boards
+- Improved RF performance overall
+- Retains OLED display and USB convenience
+- Slightly higher power consumption
+
+Best for: fixed nodes, rooftops, locations where range matters  
+Why we like it: noticeably better link reliability than V2/V3
+
+---
+
+#### Heltec Station G2
+
+A purpose-built desktop LoRa station.
+
+- Integrated case, screen, and controls
+- Designed for always-on operation
+- Strong RF performance
+- Clean appliance-like setup
+
+Best for: home base stations, monitoring nodes, repeaters  
+Why we like it: polished, stable, and low-maintenance
+
+---
+
+#### LilyGO T-Beam (SX1262)
+
+A community classic with excellent versatility.
+
+- SX1262 radio (very good RF characteristics)
+- Built-in GPS
+- Battery support and charging
+- External antenna connector
+
+Best for: mobile nodes, bikes, vehicles, GPS tracking
+
+---
+
+#### LilyGO T-LoRa32 variants
+
+A simpler, smaller alternative to the T-Beam.
+
+- SX1262 radio
+- Lower cost and compact size
+- No GPS on most versions
+- Good battery options
+
+Best for: compact builds, battery nodes, experimentation
+
+---
+
+#### Seeed T1000-E
+
+A small, rugged tracker-style device.
+
+- SX1262 radio
+- Excellent low-power design
+- Integrated battery and enclosure
+- No Wi-Fi or screen
+
+Important note:  
+The T1000-E does not have Wi-Fi and is not ideal for development or debugging, but it performs very well once configured.
+
+Best for: portable nodes, long-runtime carry devices  
+Why we like it: efficient, durable, and surprisingly capable
+
+---
+
+#### RAK Mini (RAK4631 Mini)
+
+A compact, low-power LoRa module designed for embedded and portable use.
+
+- SX1262-based radio
+- Very small footprint
+- Excellent power efficiency
+- Requires an external carrier board or custom wiring
+
+Best for: ultra-compact builds, embedded projects, advanced users  
+Why we like it: great RF performance in a tiny, efficient package
+
+---
+
+#### RAK WisBlock (RAK4631 + Base Board)
+
+A modular, professional-grade platform.
+
+- Excellent RF performance
+- Swappable modules (GPS, sensors, power)
+- Highly configurable
+- Requires light assembly
+
+Best for: repeaters, permanent installs, sensor nodes  
+Why we like it: reliability and flexibility at scale
+
+---
+
+#### Generic ESP32 + SX1262 dev boards
+
+A mixed bag depending on vendor and layout.
+
+- Often inexpensive
+- RF quality varies widely
+- May require tuning and troubleshooting
+
+Best for: tinkerers and advanced experimentation
+
+---
+
+### Choosing the right device
+
+When selecting hardware for OmaMesh and MeshCore, prioritize:
+
+- SX1262 radio (strongly recommended)
+- External antenna connector
+- Power profile (USB vs battery vs always-on)
+- Use case (mobile vs fixed vs repeater)
+- Ease of flashing and recovery
+
+Antenna quality and placement often matter more than the board itself.
+
+---
+
+### Compatibility notes (important)
+
+- All devices listed here can run MeshCore firmware
+- Spreading Factor must match the mesh (SF9 for OmaMesh)
+- Coding Rate may vary without breaking interoperability
+- Higher output power does not guarantee better results without good antennas
+
+If you are unsure what to buy, start with a Heltec V4, Station G2, or T-Beam, then branch out as your needs evolve.
+
+Get on the air first. Optimize later.
 
 ### 2. MeshCore software
 
@@ -82,7 +233,6 @@ SF9 strikes a good balance for Omaha:
 
 For details on why SF9 is required and how Coding Rate affects reliability, see
 [Spreading Factor (SF) and Coding Rate (CR)]({{ "/docs/sf-cr/" | relative_url }}).
-
 ## Your first steps on the mesh
 
 Once your device is configured:
