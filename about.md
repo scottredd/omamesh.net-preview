@@ -18,8 +18,8 @@ OmaMesh focuses on low-power, long-range radios that form self-healing networks.
 
 We primarily work with two open platforms:
 
-- **:contentReference[oaicite:1]{index=1}** – A widely used open-source firmware and ecosystem for LoRa-based text messaging, GPS sharing, and telemetry.
-- **:contentReference[oaicite:2]{index=2}** – A newer, lightweight mesh protocol optimized for experimentation, automation, and creative integrations.
+- Meshtastic – A widely used open-source firmware and ecosystem for LoRa-based text messaging, GPS sharing, and telemetry.
+- MeshCore – A newer, lightweight mesh protocol optimized for messaging
 
 OmaMesh supports **both**, and many of our nodes bridge ideas, tools, and lessons learned between them.
 
