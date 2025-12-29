@@ -5,8 +5,8 @@ title: Getting Started
 
 Quick links:
 
-- [Getting Started with MeshCore](/docs/meshcore-getting-started/)
-- [Best Practices](/docs/best-practices.html)
+- [Getting Started with MeshCore]({{ "/docs/meshcore-getting-started/" | relative_url }})
+- [Best Practices]({{ "/docs/best-practices.html" | relative_url }})
 
 Meshtastic quick start:
 
